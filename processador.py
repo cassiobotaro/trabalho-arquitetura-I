@@ -3,7 +3,6 @@
 '''
     Módulo contendo processador MIPS.
 '''
-from string import maketrans
 from componentes import PC, ControlUnit, Alu
 from sys import exit
 
@@ -35,13 +34,13 @@ class Mips(object):
         """
             Imprime o contador de programa.
         """
-        print('IF \n  PC -> {pc}\n'.format(pc=self.pc.saida))
+        print(('IF \n  PC -> {pc}\n'.format(pc=self.pc.saida)))
 
     def imprimirID(self):
         """
             Imprime os valores dos sinais de controle.
         """
-        print(
+        print((
             'ID\n'
             '  PCWriteCond -> {pc_write_cond}\n'
             '  PCWrite -> {pc_write}\n'
@@ -62,43 +61,43 @@ class Mips(object):
                 op=self.control_unit.aluop.op,
                 **self.control_unit
             )
-        )
+        ))
 
     def imprimirEX(self):
         """
             Imprime a saída da Alu e flag de Zero
         """
-        print(
+        print((
             'EX\n'
             '  AluOut -> {resultado}\n'
             '  Zero -> {zero}\n'.format(**self.alu)
-        )
+        ))
 
     def imprimirMEM(self):
         """
             Imprime o endereço de memória e o dado.
         """
-        print(
+        print((
             'MEM\n'
             '  Endereço -> {saida}\n'
             '  Dado -> {rt}\n'.format(
                 saida=self.alu.resultado,
                 rt=self.registradores[int(self.rt, 2)]
             )
-        )
+        ))
 
     def imprimirWR(self):
         """
             Imprime o valor a ser escrito e o registrador de destino.
         """
-        print(
+        print((
             'WR\n'
             '  WriteData -> {write_data}\n'
             '  RegDst -> {regdst}\n'.format(
                 write_data=self.write_data,
                 regdst=self.control_unit.regdst
             )
-        )
+        ))
 
     def imprimirRegistradores(self):
         '''
@@ -106,7 +105,7 @@ class Mips(object):
         '''
         print('Número do registrador -> valor')
         for indice, registrador in enumerate(self.registradores):
-            print('{indice:02} -> {registrador}\n'.format(**locals()))
+            print(('{indice:02} -> {registrador}\n'.format(**locals())))
 
     def IF(self):
         """
@@ -300,7 +299,7 @@ class Mips(object):
         """
         norbb = int(self.alu.entradaa, 2) | int(self.alu.entradab, 2)
         norbb = bin(norbb).replace('0b', '').zfill(32)
-        self.alu.resultado = norbb.translate(maketrans('-01', '010'))
+        self.alu.resultado = norbb.translate(str.maketrans('-01', '010'))
 
     def _j(self):
         """

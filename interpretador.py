@@ -156,8 +156,8 @@ try:
     desenvolvimento de labels.
     '''
     if len(sys.argv) < 2:
-        print 'Para executar o programa digite no seguinte formato:\n'\
-            'python arq1.py nomedoarquivo.asm'
+        print('Para executar o programa digite no seguinte formato:\n'\
+            'python arq1.py nomedoarquivo.asm')
         sys.exit()
 
     nome_arquivo = sys.argv[1]
@@ -216,6 +216,6 @@ try:
             else:
                 raise NotImplementedError('Instrução inválida.')
 except IOError:
-    print 'Arquivo não encontrado!'
+    print('Arquivo não encontrado!')
 except (IndexError, ValueError) as e:
-    print 'Erros ocorreram durante compilação : ' + e.message
+    print('Erros ocorreram durante compilação : ' + e.message)

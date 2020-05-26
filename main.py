@@ -19,8 +19,8 @@ import sys
 
 def main():
     if len(sys.argv) < 2:
-        print 'Para executar o programa digite no seguinte formato:\n'\
-            'python main.py nomedoarquivo.bin [tempo_parada]'
+        print('Para executar o programa digite no seguinte formato:\n'\
+            'python main.py nomedoarquivo.bin [tempo_parada]')
         sys.exit()
     ciclo = int(sys.argv[2]) if len(sys.argv) == 3 else 1
     try:
@@ -46,7 +46,7 @@ def main():
                 sleep(ciclo)
 
     except IOError:
-        print 'Arquivo não encontrado!'
+        print('Arquivo não encontrado!')
 
     return 0
 

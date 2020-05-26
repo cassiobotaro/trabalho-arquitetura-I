@@ -3,7 +3,7 @@ Simulação do processador MIPS multiciclo.
 
 ## Requisitos do sistema
 
-- Python (2.7.X)
+- Python (3.6+)
 
 ## Intruções de utilização
 
